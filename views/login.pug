@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  main.inner.cover(role='main')
+    form.form-signin(method='POST' action='login')
+      //-input email
+      label.sr-only(for='inputUser') User
+      input#inputUser.form-control(type='user' name='username' placeholder='Username' required autofocus)
+
+      //-input password
+      label.sr-only(for='inputPassword') Password
+      input#inputPassword.form-control(type='password' name='password' placeholder='Password' required)
+
+      //-signIn button
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+
+      if error
+        p#error.text-danger.pt-3 #{error}
+
