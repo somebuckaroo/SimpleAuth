@@ -25,7 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: crypto.randomBytes(64).toString('hex'),
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    sameSite: 'strict'
+  }
 }));
 app.use(flash());
 app.use(passport.initialize());
